@@ -15,9 +15,9 @@ class ImportLogFactory extends Factory
     public function definition(): array
     {
         return [
-            'import_id'      => Import::factory(),
+            'import_id' => Import::factory(),
             'transaction_id' => $this->faker->uuid(),
-            'error_message'  => 'account_number must be a valid IBAN.',
+            'error_message' => 'account_number must be a valid IBAN.',
         ];
     }
 }

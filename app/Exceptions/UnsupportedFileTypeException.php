@@ -6,6 +6,4 @@ namespace App\Exceptions;
 
 use RuntimeException;
 
-class UnsupportedFileTypeException extends RuntimeException
-{
-}
+class UnsupportedFileTypeException extends RuntimeException {}

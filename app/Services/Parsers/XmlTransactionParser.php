@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Services\Parsers;
 
 use RuntimeException;
-use SimpleXMLElement;
 
 class XmlTransactionParser implements TransactionParserInterface
 {
@@ -24,19 +23,19 @@ class XmlTransactionParser implements TransactionParserInterface
         if ($xml === false) {
             $errors = libxml_get_errors();
             libxml_clear_errors();
-            $message = !empty($errors) ? $errors[0]->message : 'Unknown XML error';
-            throw new RuntimeException('Invalid XML file: ' . trim($message));
+            $message = ! empty($errors) ? $errors[0]->message : 'Unknown XML error';
+            throw new RuntimeException('Invalid XML file: '.trim($message));
         }
 
         $records = [];
 
         foreach ($xml->transaction as $transaction) {
             $records[] = [
-                'transaction_id'   => (string) $transaction->transaction_id,
-                'account_number'   => (string) $transaction->account_number,
+                'transaction_id' => (string) $transaction->transaction_id,
+                'account_number' => (string) $transaction->account_number,
                 'transaction_date' => (string) $transaction->transaction_date,
-                'amount'           => (string) $transaction->amount,
-                'currency'         => (string) $transaction->currency,
+                'amount' => (string) $transaction->amount,
+                'currency' => (string) $transaction->currency,
             ];
         }
 

@@ -28,9 +28,9 @@ class StoreImportRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'file.required'  => 'A file is required.',
-            'file.file'      => 'The uploaded value must be a file.',
-            'file.max'       => 'The file must not exceed 10MB.',
+            'file.required' => 'A file is required.',
+            'file.file' => 'The uploaded value must be a file.',
+            'file.max' => 'The file must not exceed 10MB.',
             'file.mimetypes' => 'The file must be a CSV, JSON or XML file.',
         ];
     }

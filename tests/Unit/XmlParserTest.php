@@ -15,12 +15,12 @@ class XmlParserTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->parser = new XmlTransactionParser();
+        $this->parser = new XmlTransactionParser;
     }
 
     public function test_parses_valid_xml(): void
     {
-        $xml = <<<XML
+        $xml = <<<'XML'
         <transactions>
             <transaction>
                 <transaction_id>550e8400-e29b-41d4-a716-446655440001</transaction_id>
@@ -70,7 +70,7 @@ class XmlParserTest extends TestCase
 
     public function test_parses_multiple_transactions(): void
     {
-        $xml = <<<XML
+        $xml = <<<'XML'
         <transactions>
             <transaction>
                 <transaction_id>aaa</transaction_id>
@@ -102,6 +102,7 @@ class XmlParserTest extends TestCase
     {
         $path = tempnam(sys_get_temp_dir(), 'xml_test_');
         file_put_contents($path, $content);
+
         return $path;
     }
 }

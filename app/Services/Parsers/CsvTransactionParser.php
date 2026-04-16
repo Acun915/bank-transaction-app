@@ -20,6 +20,7 @@ class CsvTransactionParser implements TransactionParserInterface
 
         if ($headers === false || $headers === null) {
             fclose($handle);
+
             return [];
         }
 

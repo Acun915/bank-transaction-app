@@ -15,18 +15,18 @@ class JsonParserTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->parser = new JsonTransactionParser();
+        $this->parser = new JsonTransactionParser;
     }
 
     public function test_parses_valid_json(): void
     {
         $json = json_encode([
             [
-                'transaction_id'   => '550e8400-e29b-41d4-a716-446655440001',
-                'account_number'   => 'PL61109010140000071219812874',
+                'transaction_id' => '550e8400-e29b-41d4-a716-446655440001',
+                'account_number' => 'PL61109010140000071219812874',
                 'transaction_date' => '2025-10-14',
-                'amount'           => 150000,
-                'currency'         => 'PLN',
+                'amount' => 150000,
+                'currency' => 'PLN',
             ],
         ]);
 
@@ -79,6 +79,7 @@ class JsonParserTest extends TestCase
     {
         $path = tempnam(sys_get_temp_dir(), 'json_test_');
         file_put_contents($path, $content);
+
         return $path;
     }
 }

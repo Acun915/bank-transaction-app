@@ -14,11 +14,11 @@ class ImportFactory extends Factory
     public function definition(): array
     {
         return [
-            'file_name'          => $this->faker->word() . '.csv',
-            'total_records'      => 10,
+            'file_name' => $this->faker->word().'.csv',
+            'total_records' => 10,
             'successful_records' => 10,
-            'failed_records'     => 0,
-            'status'             => 'success',
+            'failed_records' => 0,
+            'status' => 'success',
         ];
     }
 }

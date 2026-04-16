@@ -34,11 +34,11 @@ class ImportListTest extends TestCase
     public function test_list_returns_correct_fields(): void
     {
         Import::factory()->create([
-            'file_name'          => 'test.csv',
-            'total_records'      => 5,
+            'file_name' => 'test.csv',
+            'total_records' => 5,
             'successful_records' => 4,
-            'failed_records'     => 1,
-            'status'             => 'partial',
+            'failed_records' => 1,
+            'status' => 'partial',
         ]);
 
         $response = $this->getJson('/api/imports');
@@ -58,9 +58,9 @@ class ImportListTest extends TestCase
         ]);
 
         ImportLog::factory()->create([
-            'import_id'      => $import->id,
+            'import_id' => $import->id,
             'transaction_id' => 'abc-123',
-            'error_message'  => 'account_number must be a valid IBAN.',
+            'error_message' => 'account_number must be a valid IBAN.',
         ]);
 
         $response = $this->getJson("/api/imports/{$import->id}");

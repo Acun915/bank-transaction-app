@@ -38,18 +38,18 @@ class ImportUploadTest extends TestCase
     {
         $json = json_encode([
             [
-                'transaction_id'   => '660e8400-e29b-41d4-a716-446655440001',
-                'account_number'   => 'PL61109010140000071219812874',
+                'transaction_id' => '660e8400-e29b-41d4-a716-446655440001',
+                'account_number' => 'PL61109010140000071219812874',
                 'transaction_date' => '2025-10-14',
-                'amount'           => 150000,
-                'currency'         => 'PLN',
+                'amount' => 150000,
+                'currency' => 'PLN',
             ],
             [
-                'transaction_id'   => '660e8400-e29b-41d4-a716-446655440002',
-                'account_number'   => 'GB29NWBK60161331926819',
+                'transaction_id' => '660e8400-e29b-41d4-a716-446655440002',
+                'account_number' => 'GB29NWBK60161331926819',
                 'transaction_date' => '2025-10-13',
-                'amount'           => 20050,
-                'currency'         => 'USD',
+                'amount' => 20050,
+                'currency' => 'USD',
             ],
         ]);
 
@@ -69,7 +69,7 @@ class ImportUploadTest extends TestCase
 
     public function test_xml_import_with_all_valid_records(): void
     {
-        $xml = <<<XML
+        $xml = <<<'XML'
         <transactions>
             <transaction>
                 <transaction_id>770e8400-e29b-41d4-a716-446655440001</transaction_id>

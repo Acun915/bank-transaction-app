@@ -14,7 +14,7 @@ class CsvParserTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->parser = new CsvTransactionParser();
+        $this->parser = new CsvTransactionParser;
     }
 
     public function test_parses_valid_csv(): void
@@ -68,6 +68,7 @@ class CsvParserTest extends TestCase
     {
         $path = tempnam(sys_get_temp_dir(), 'csv_test_');
         file_put_contents($path, $content);
+
         return $path;
     }
 }

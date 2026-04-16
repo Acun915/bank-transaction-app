@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Import extends Model
 {
     use HasFactory;
+
     protected $fillable = [
         'file_name',
         'total_records',

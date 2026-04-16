@@ -34,11 +34,11 @@ class ImportService
 
         return DB::transaction(function () use ($file, $records, $totalRecords, &$successfulRecords, &$failedRecords) {
             $import = $this->importRepository->create([
-                'file_name'           => $file->getClientOriginalName(),
-                'total_records'       => $totalRecords,
-                'successful_records'  => 0,
-                'failed_records'      => 0,
-                'status'              => 'partial',
+                'file_name' => $file->getClientOriginalName(),
+                'total_records' => $totalRecords,
+                'successful_records' => 0,
+                'failed_records' => 0,
+                'status' => 'partial',
             ]);
 
             foreach ($records as $record) {
@@ -48,22 +48,23 @@ class ImportService
                     $errors[] = 'transaction_id already exists.';
                 }
 
-                if (!empty($errors)) {
+                if (! empty($errors)) {
                     $this->importLogRepository->create([
-                        'import_id'      => $import->id,
+                        'import_id' => $import->id,
                         'transaction_id' => $record['transaction_id'] ?? null,
-                        'error_message'  => implode(' ', $errors),
+                        'error_message' => implode(' ', $errors),
                     ]);
                     $failedRecords++;
+
                     continue;
                 }
 
                 $this->transactionRepository->create([
-                    'transaction_id'   => $record['transaction_id'],
-                    'account_number'   => $record['account_number'],
+                    'transaction_id' => $record['transaction_id'],
+                    'account_number' => $record['account_number'],
                     'transaction_date' => $record['transaction_date'],
-                    'amount'           => $record['amount'],
-                    'currency'         => $record['currency'],
+                    'amount' => $record['amount'],
+                    'currency' => $record['currency'],
                 ]);
                 $successfulRecords++;
             }
