@@ -18,5 +18,9 @@
         "vite": "^7.0.7",
         "vue": "^3.5.32",
         "vue-tsc": "^3.2.6"
+    },
+    "dependencies": {
+        "vue-router": "^5.0.4",
+        "vue-toastification": "^2.0.0-rc.5"
     }
 }
