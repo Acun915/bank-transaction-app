@@ -10,6 +10,7 @@ use App\Repositories\Contracts\ImportRepositoryInterface;
 use App\Repositories\Contracts\TransactionRepositoryInterface;
 use App\Services\Parsers\TransactionParserFactory;
 use App\Services\Validation\TransactionValidator;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\DB;
 
@@ -74,6 +75,16 @@ class ImportService
 
             return $import;
         });
+    }
+
+    public function getAll(): Collection
+    {
+        return $this->importRepository->findAll();
+    }
+
+    public function getById(int $id): ?Import
+    {
+        return $this->importRepository->findById($id);
     }
 
     private function resolveStatus(int $successful, int $failed, int $total): string
